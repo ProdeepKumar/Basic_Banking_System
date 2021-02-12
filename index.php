@@ -32,6 +32,9 @@
         <a class="nav-link" href="customer.php"><b>Customer Details</b></a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="customerinfo.php"><b>Find Customer</b></a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="transfer.php"><b>Transfer Money</b></a>
       </li>
       <li class="nav-item">
@@ -44,7 +47,7 @@
 
 
 <div class="outbox">
-  <p class="box"> Developed & designed by <br> ©Prodeep Kumar Paul</p>
+  <p class="box"> Developed & Designed by <br> ©Prodeep Kumar Paul</p>
 
 </div>
 
