@@ -31,6 +31,9 @@
         <a class="nav-link" href="customer.php"><b>Customer Details</b></a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="customerinfo.php"><b>Find Customer</b></a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="transfer.php"><b>Transfer Money</b></a>
       </li>
       <li class="nav-item">
@@ -75,22 +78,25 @@
                 $cust1 = $_GET["fromuser"];
                 $cust2 = $_GET["touser"];
                 $amount =$_GET["amount"];
+                // $query = "SELECT balance from customers where name=$cust1";
 
             if ($cust1 != "" && $cust2 != "" && $amount!="")
             {
-                $aa="SELECT balance From customers WHERE name='$cust1'";
-                $amt=intval($amount);
+               include("configuration.php");
+              $query = mysqli_query($connection, "SELECT balance FROM customers where name='$cust1'");
+              $result= mysqli_fetch_assoc($query);    
                 if($cust1==$cust2)
                 {
                       echo "<script>alert('Error ! Same Name Selected. Please Check Properly!')</script>";
                 }
-                else if($amt<=0)
+                else if($amount<=0)
                 {
                       echo "<script>alert('Error ! Amount you entered is too low !')</script>";
                 }
-                else if($amt> $aa )
+                else if($amount> $result['balance'] )
                 {
-                    echo "<script>alert('Insufficient Balance. Transaction failed !')</script>";
+                    // echo $query;
+                     echo "<script>alert('Insufficient Balance. Transaction failed !')</script>";
                 }
                 else if($cust1!=$cust2)
                 {
